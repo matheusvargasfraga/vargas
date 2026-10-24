@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VARGAS · Young</title>
+<link rel="icon" type="image/svg+xml" href="/orb.svg">
+<link rel="apple-touch-icon" href="/orb.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <script type="module" crossorigin src="/assets/index-BGjt6kHD.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DKZj527o.css">
+</head>
+<body>
+<div id="tela-login" class="login" hidden>
+  <form id="login-form">
+    <h1><b>VARGAS</b> · Young</h1>
+    <p id="login-msg">Entre com sua conta Google da Young.</p>
+    <div id="google-btn" style="min-height:44px"></div>
+    <details id="senha-box"><summary style="font-size:12px;color:var(--muted);cursor:pointer">Entrar com e-mail e senha</summary>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
+    <label class="field">E-mail<input id="lg-email" type="email" autocomplete="username" required></label>
+    <label class="field" id="lg-senha-box">Senha<input id="lg-senha" type="password" autocomplete="current-password" required></label>
+    <button class="btn primary" type="submit" id="lg-btn">Entrar</button>
+    </div></details>
+    <div class="erro" id="lg-erro"></div>
+  </form>
+</div>
+
+<div id="app" hidden>
+<aside class="menu-lat" id="menu-lat">
+  <div class="brand"><img class="brand-orb" src="/orb.svg" alt=""><span class="rot"><b>VARGAS</b><span>Young Marketing</span></span></div>
+  <nav class="tabs" role="tablist" aria-label="Seções do app">
+    <div class="sec">Análise</div>
+    <button class="tab" role="tab" data-tab="dashboard" aria-selected="true" title="Dashboard"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span class="rot">Dashboard</span></button>
+    <button class="tab" role="tab" data-tab="indicadores" aria-selected="false" title="Indicadores"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><span class="rot">Indicadores</span></button>
+    <button class="tab" role="tab" data-tab="campanhas" aria-selected="false" title="Campanhas"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg><span class="rot">Campanhas</span></button>
+        <div class="sec">Operação</div>
+    <button class="tab" role="tab" data-tab="tabela" aria-selected="false" title="Tabela"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg><span class="rot">Tabela</span></button>
+    <button class="tab" role="tab" data-tab="plano" aria-selected="false" title="Plano de ação"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg><span class="rot">Plano de ação</span></button>
+    <button class="tab" role="tab" data-tab="cronograma" aria-selected="false" title="Cronograma"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><span class="rot">Cronograma</span></button>
+    <button class="tab" role="tab" data-tab="orcamentos" aria-selected="false" title="Orçamentos" hidden><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span class="rot">Orçamentos</span></button>
+    <button class="tab" role="tab" data-tab="demandas" aria-selected="false" title="Demandas" hidden><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h4l2 3h4l2-3h4"/><path d="M5 5h14l2 8v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5z"/></svg><span class="rot">Demandas</span></button>
+    <div class="sec">IA</div>
+    <button class="tab" role="tab" data-tab="vargas" aria-selected="false" title="VARGAS"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="8.5" stroke-dasharray="3 3"/></svg><span class="rot"><span class="vg">VARGAS</span></span></button>
+    <div class="sec">Sistema</div>
+    <button class="tab" role="tab" data-tab="config" aria-selected="false" title="Configurações" hidden><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span class="rot">Configurações</span></button>
+  </nav>
+  <div class="menu-rodape">
+    <div class="menu-user"><span class="avatar" id="avatar" title=""></span><button class="iconbtn rot" id="sair-btn" type="button" title="Sair">Sair</button></div>
+    <div class="menu-acoes">
+      <button class="seta-menu" id="menu-seta" type="button" title="Recolher menu" aria-label="Recolher menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    </div>
+    <span id="live-txt" hidden></span>
+  </div>
+</aside>
+<button class="tema-btn dev-btn" id="dev-btn" type="button" title="Modo de desenvolvedor: clique em qualquer elemento para mudar" aria-label="Modo de desenvolvedor" hidden><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></button>
+<button class="tema-btn sino-btn" id="sino-btn" type="button" title="Notificações" aria-label="Notificações"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="sino-n" id="sino-n" hidden></span></button>
+<div class="sino-caixa" id="sino-caixa" hidden></div>
+<button class="tema-btn" id="tema-btn" type="button" title="Alternar tema claro/escuro" aria-label="Alternar tema claro/escuro"></button>
+
+<main>
+  <div class="carregando" id="carregando" aria-label="Carregando dados"><div class="sk sk-t"></div><div class="sk-kpis"><div class="sk sk-k"></div><div class="sk sk-k"></div><div class="sk sk-k"></div><div class="sk sk-k"></div><div class="sk sk-k"></div><div class="sk sk-k"></div></div><div class="sk-cards"><div class="sk sk-c"></div><div class="sk sk-c"></div><div class="sk sk-c"></div></div></div>
+
+  <!-- TABELA -->
+  <section class="view" id="view-tabela" hidden>
+    <div class="tbl-bar">
+      <label class="search"><span aria-hidden="true">⌕</span><input id="tbl-q" type="search" autocomplete="off" placeholder="Buscar em todas as colunas (ex.: Aurora, Meta Ads, 03/10)"></label>
+      <div class="chips" role="group" aria-label="Visões salvas" id="tbl-views"></div>
+      <button class="btn" id="tbl-clear" type="button">Limpar filtros</button>
+      <button class="btn" id="tbl-export" type="button">Exportar CSV</button>
+      <button class="btn primary" id="tbl-new" type="button">+ Novo lançamento</button>
+    </div>
+    <div class="sheet">
+      <div class="sheet-scroll"><table class="grid" id="grid"><thead></thead><tbody></tbody><tfoot></tfoot></table></div>
+      <div class="sheet-foot">
+        <span id="tbl-count"></span>
+        <span id="tbl-hint"></span>
+        <div class="pager"><button class="btn" id="pg-prev" type="button">‹</button><span id="pg-txt"></span><button class="btn" id="pg-next" type="button">›</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section class="view" id="view-dashboard" hidden>
+    <div class="dash-head"><div><h1>Marketing e Vendas</h1></div>
+      <div class="dash-acoes"><button class="btn tgl" id="dash-pl-btn" type="button" aria-pressed="false">Pré-lançamento</button><button class="btn" id="dash-add" type="button" hidden>+ Adicionar gráfico ou mostrador</button><button class="btn" id="dash-padrao" type="button" hidden>Restaurar padrão</button><button class="btn" id="dash-editar" type="button">Editar painel</button></div></div>
+    <div class="filters">
+      <label class="field">Período<select id="d-periodo"><option value="7">Últimos 7 dias</option><option value="30" selected>Últimos 30 dias</option><option value="mes">Mês atual</option><option value="mesant">Mês anterior</option><option value="90">Últimos 90 dias</option><option value="ano">Ano atual</option><option value="tudo">Tudo</option><option value="custom">Personalizado</option></select></label>
+      <label class="field" id="d-de-box" hidden>De<input type="date" id="d-de"></label>
+      <label class="field" id="d-ate-box" hidden>Até<input type="date" id="d-ate"></label>
+      <div class="field">Subcategoria do relatório<div class="ms" id="d-sub"></div></div>
+      <div class="field">Ativo<div class="ms" id="d-ativo"></div></div>
+      <div class="field">Cidade<div class="ms" id="d-cidade"></div></div>
+      <div class="field">Intermediação da venda<div class="ms" id="d-inter"></div></div>
+      <div class="field">medium<div class="ms" id="d-med"></div></div>
+    </div>
+    <div class="sec-title">Dados gerais</div>
+    <div class="sec-title">Investimento, leads e vendas</div>
+    <div class="cards">
+      <div class="card c12 kpis-card"><div class="kpis" id="kpis"></div></div>
+      <div class="card c4"><h3>Investimento por categoria</h3><p class="sub">Subcategoria do relatório</p><div class="chart"><canvas id="ch-cat"></canvas></div></div>
+      <div class="card c4"><h3>Vendas por ativo</h3><p class="sub">Unidades vendidas no período</p><div class="chart"><canvas id="ch-vativo"></canvas></div></div>
+      <div class="card c4"><h3>Leads por ativo</h3><p class="sub">Leads totais (soma)</p><div class="chart"><canvas id="ch-lativo"></canvas></div></div>
+      <div class="card c8"><h3>Análise de gaps de vendas</h3><p class="sub" id="gap-sub">Vendas acumuladas no mês contra a meta do Plano de ação</p><div class="chart"><canvas id="ch-gap"></canvas></div></div>
+      <div class="card c4"><h3>Vendas mensais por consultor</h3><p class="sub">Interna e externa, últimos 3 meses</p><div class="tablebox" id="t-consultor"></div></div>
+      <div class="card c6"><h3>Investimento por ativo no período</h3><p class="sub">Todas as categorias</p><div class="chart"><canvas id="ch-iativo"></canvas></div></div>
+      <div class="card c6"><h3>Leads por dia</h3><p class="sub">Os 4 maiores ativos e os demais somados</p><div class="chart"><canvas id="ch-leads"></canvas></div></div>
+      <div class="card c6"><h3>Investimento por canal</h3><p class="sub">Canal da linha</p><div class="chart"><canvas id="ch-canal"></canvas></div></div>
+      <div class="card c3"><h3>Intermediação da venda</h3><p class="sub">Unidades</p><div class="chart sm"><canvas id="ch-inter"></canvas></div></div>
+      <div class="card c3"><h3>Responsável pela venda interna</h3><p class="sub">Unidades</p><div class="chart sm"><canvas id="ch-resp"></canvas></div></div>
+    </div>
+    <div class="sec-title">Vendas do período</div>
+    <div class="cards"><div class="card c12"><h3>Vendas detalhadas</h3><p class="sub">Uma linha por lote vendido</p><div class="tablebox tall" id="t-vendas"></div></div></div>
+    <div class="sec-title">Eficiência e funil</div>
+    <div class="cards">
+      <div class="card c6"><h3>CPL ao longo do tempo</h3><p class="sub">Investimento ÷ leads totais, por semana</p><div class="chart"><canvas id="ch-cpl"></canvas></div></div>
+      <div class="card c6"><h3>Taxa de conversão ao longo do tempo</h3><p class="sub">Vendas ÷ leads, por semana</p><div class="chart"><canvas id="ch-conv"></canvas></div></div>
+      <div class="card c12"><h3>Leads por etapa do funil</h3><p class="sub">Últimos 14 dias do período, com as taxas do funil</p><div class="tablebox" id="t-funil"></div></div>
+      <div class="card c3"><h3>Vendas por cidade</h3><div class="tablebox" id="t-cidade"></div></div>
+      <div class="card c3"><h3>VGV por ativo</h3><div class="chart" id="t-vgv"><canvas id="ch-vgv"></canvas></div></div>
+      <div class="card c3"><h3>VGV por consultor</h3><div class="tablebox" id="t-vgvc"></div></div>
+      <div class="card c3"><h3>Vendas internas por canal (source)</h3><div class="tablebox" id="t-source"></div></div>
+      <div class="card c12"><h3>ROAS detalhado</h3><p class="sub">Retorno = 2% do VGV · ROAS = retorno ÷ investimento</p><div class="tablebox" id="t-roas"></div></div>
+    </div>
+    <div class="cards" id="dash-pl">
+      <div class="card c12 pl-topo" data-pl="1"><h3>Pré-lançamento · <span id="pv-proj"></span> <button class="btn sm" id="pv-premissas" type="button">Premissas</button></h3>
+        <div class="kpis" id="pv-kpis"></div><div class="pv-leitura" id="pv-leitura"></div><div class="kpis pv-mcs" id="pv-metas"></div></div>
+        <div class="card c6" data-pl="1"><h3>Reservas: real × previsão</h3><p class="sub" id="pv-sub"></p><div class="chart"><canvas id="pv-res"></canvas></div></div>
+        <div class="card c6" data-pl="1"><h3>Vendas: real × previsão</h3><p class="sub">Do lançamento em diante. No dia do lançamento as reservas viram vendas.</p><div class="chart"><canvas id="pv-ven"></canvas></div></div>
+        <div class="card c6" data-pl="1"><h3>Funil do pré-lançamento</h3><p class="sub">Desde o início do pré-lançamento. A largura segue o número de cada etapa (escala logarítmica); o % é em relação à etapa anterior.</p><div id="pv-funil"></div></div>
+        <div class="card c6" data-pl="1"><h3>Força das estratégias</h3><p class="sub">Para cada tipo de ação do cronograma: leads recebidos nos 7 dias depois da ação menos os 7 dias antes ("leads a mais"), e quanto custou cada um desses leads. Quanto menor o custo, mais forte a estratégia. É uma estimativa: ações próximas se somam e o orgânico também pesa.</p><div class="tablebox" id="pv-forca"></div></div>
+    </div>
+  </section>
+
+  <!-- PLANO DE AÇÃO -->
+  <section class="view" id="view-plano" hidden>
+    <div class="dash-head"><div><h1>Plano de ação</h1><p>Indicadores do mês por empreendimento contra a meta. Substitui a planilha "Relatório do plano de ação Marketing".</p></div></div>
+    <div class="plano-bar">
+      <label class="field">Mês<select id="p-mes"></select></label>
+      <label class="field">De<input type="date" id="p-de"></label>
+      <label class="field">Até<input type="date" id="p-ate"></label>
+    </div>
+    <div class="sheet"><div class="sheet-scroll" style="min-height:0"><table class="plano" id="plano"></table></div></div>
+    <p class="nota" id="p-nota"></p>
+
+    <div class="sec-title">Distribuição do investimento diário por conjunto</div>
+    <div class="filters">
+      <label class="field">Empreendimento<select id="dist-emp"></select></label>
+      <label class="field">CPL dos últimos<select id="dist-dias"><option value="7">7 dias</option><option value="14" selected>14 dias</option><option value="30">30 dias</option></select></label>
+      <label class="field">Budget disponível (R$)<input id="dist-bud" inputmode="decimal" placeholder="do Indicadores"></label>
+      <label class="field">Meses para zerar<input id="dist-meses" inputmode="numeric" placeholder="ex.: 6" style="width:110px"></label>
+      <label class="field">Investimento diário (R$)<input id="dist-inv" inputmode="decimal" placeholder="ex.: 150"></label>
+    </div>
+    <p class="nota" id="dist-calc"></p>
+    <p class="nota" id="dist-status"></p>
+    <div class="sheet"><div class="sheet-scroll" style="min-height:0;max-height:420px"><table class="plano" id="dist-tab"></table></div></div>
+    <p class="nota">Substitui a calculadora da planilha: cada conjunto ativo recebe a parte do investimento proporcional a 1 ÷ CPL (CPL menor, fatia maior). Leads de cadastros e conversas vêm da Meta; dos outros objetivos (alcance, tráfego…), do Pingolead pelo nome do anúncio. Sem lead, o CPL é o próprio gasto. O investimento vem do "Budget mensal Ads" ÷ 30 e pode ser trocado. Dá para corrigir o CPL ou desmarcar um conjunto para simular.</p>
+
+    <div class="sec-title">Depósitos na Meta · conta YNG-Matriz</div>
+    <form class="filters" id="dep-form" hidden>
+      <label class="field">Data<input type="date" id="dep-data" required></label>
+      <label class="field">Ativo<select id="dep-ativo"><option>MTC</option><option>PGR</option><option>YNG</option></select></label>
+      <label class="field">Valor (R$)<input id="dep-valor" inputmode="decimal" placeholder="ex.: 1.400,00" required></label>
+      <button class="btn primary" id="dep-btn" type="submit" style="align-self:flex-end">Lançar depósito</button>
+    </form>
+    <div class="sheet"><div class="sheet-scroll" style="min-height:0;max-height:320px"><table class="plano" id="dep-lista"></table></div></div>
+    <p class="nota">O depósito soma no saldo de MTC ou PGR a partir do dia lançado (substitui a aba "Depósitos Meta YNG-Matriz"). Dois depósitos no mesmo dia e ativo: lance o total.</p>
+  </section>
+
+  <!-- CRONOGRAMA -->
+  <section class="view" id="view-cronograma" hidden>
+    <div class="dash-head"><div><h1>Cronograma</h1><p>Editorial (anúncios) e institucional (posts e stories). Substitui as planilhas "Cronograma geral" e "Calendário de publicações".</p></div>
+      <div class="dash-acoes"><div class="seg" id="cro-modo" role="group" aria-label="Visão"><button type="button" data-m="tabela">Tabela</button><button type="button" data-m="kanban">Kanban</button><button type="button" data-m="calendario">Calendário</button></div>
+      <button class="btn primary" id="cro-novo" type="button" hidden>+ Novo item</button></div></div>
+    <div class="filters">
+      <label class="field">Cronograma<select id="cro-fonte"><option value="editorial">Editorial</option><option value="institucional">Institucional</option><option value="prelancamento">Pré-lançamento</option></select></label>
+      <label class="field">Publicação de<input type="date" id="cro-de"></label>
+      <label class="field">Até<input type="date" id="cro-ate"></label>
+      <div class="field">Empreendimento<div class="ms" id="cro-emp"></div></div>
+      <div class="field"><span id="cro-etapa-rot">Etapa de produção</span><div class="ms" id="cro-etapa"></div></div>
+      <div class="field" id="cro-veic-box">Etapa de veiculação<div class="ms" id="cro-veic"></div></div>
+      <div class="field">Formato<div class="ms" id="cro-form"></div></div>
+      <div class="field" id="cro-arroba-box">@<div class="ms" id="cro-arroba"></div></div>
+      <label class="field" style="flex:1 1 200px">Buscar<input type="search" autocomplete="off" id="cro-busca" placeholder="título, conjunto, legenda…"></label>
+      <div class="field">Colunas<div class="ms" id="cro-cols"></div></div>
+    </div>
+    <p class="nota" id="cro-status"></p>
+    <div class="sheet"><div class="sheet-scroll" style="min-height:0;max-height:72vh"><table class="planilha" id="cro-tab"></table></div></div>
+    <div id="cro-kanban" hidden></div>
+    <div id="cro-cal" hidden></div>
+    <datalist id="cro-dl"></datalist>
+    <p class="nota">Semana, quinzena e ID são calculados pela data da publicação. Itens sem data aparecem em qualquer período. Os stories publicados do institucional entram nos indicadores semanais.</p>
+  </section>
+
+  <!-- ORÇAMENTOS -->
+  <section class="view" id="view-orcamentos" hidden>
+    <div class="dash-head"><div><h1>Orçamentos</h1><p>Cotações, pedidos e pagamentos de materiais e serviços. Substitui a planilha "Orçamentos | Marketing".</p></div>
+      <div class="dash-acoes"><div class="seg" id="orc-modo" role="group"><button type="button" data-m="tabela">Tabela</button><button type="button" data-m="cotacoes">Comparar cotações</button><button type="button" data-m="fornecedores">Fornecedores</button><button type="button" data-m="prelanc">Pré-lançamento</button></div><button class="btn primary" id="orc-novo" type="button">+ Novo orçamento</button></div></div>
+    <div class="kpis" id="orc-kpis"></div>
+    <div class="filters">
+      <div class="field">Empresa<div class="ms" id="orc-emp"></div></div>
+      <div class="field">Categoria de custo<div class="ms" id="orc-cat"></div></div>
+      <div class="field">Design<div class="ms" id="orc-design"></div></div>
+      <div class="field">Pedido<div class="ms" id="orc-pedido"></div></div>
+      <div class="field">Pagamento<div class="ms" id="orc-pag"></div></div>
+      <label class="field" style="flex:1 1 200px">Buscar<input type="search" autocomplete="off" id="orc-busca" placeholder="item, fornecedor, descrição…"></label>
+    </div>
+    <p class="nota" id="orc-status"></p>
+    <div id="orc-tabela"><div class="sheet"><div class="sheet-scroll" style="min-height:0;max-height:72vh"><table class="planilha" id="orc-tab"><tbody></tbody></table></div></div></div>
+    <div id="orc-cot" hidden></div>
+    <div id="orc-pl" hidden>
+      <div class="card pl-proj" id="pl-proj"></div>
+      <div class="kpis" id="pl-kpis"></div>
+      <div class="filters pl-filtros"><div class="field">Status<div class="ms" id="pl-f-st"></div></div><div class="field">Categoria<div class="ms" id="pl-f-cat"></div></div><label class="field" style="flex:1 1 200px">Buscar<input type="search" autocomplete="off" id="pl-busca" placeholder="item, fornecedor…"></label><button class="btn primary" id="pl-novo" type="button">+ Novo item</button></div><p class="nota" id="pl-status"></p>
+      <div class="sheet"><div class="sheet-scroll" style="min-height:0;max-height:62vh"><table class="planilha" id="pl-tab"></table></div></div>
+      <div class="card pl-cats" id="pl-cats"></div>
+    </div>
+    <div id="orc-forn" hidden><div class="forn-topo filters"><div class="field">Cidade<div class="ms" id="forn-cid"></div></div><div class="field">Categoria de custo<div class="ms" id="forn-cat"></div></div><div class="field">Reputação<div class="ms" id="forn-rep"></div></div><label class="field" style="flex:1 1 200px">Buscar<input type="search" autocomplete="off" id="forn-busca" placeholder="fornecedor, telefone, PIX…"></label><button class="btn primary" id="forn-novo" type="button">+ Novo fornecedor</button></div>
+      <div class="sheet"><div class="sheet-scroll" style="min-height:0;max-height:70vh"><table class="planilha" id="forn-tab"><tbody></tbody></table></div></div>
+      <p class="nota">Ao escolher o fornecedor num orçamento, a cidade, o telefone e (se ele tiver uma só) a categoria de custo são preenchidos sozinhos. Os dados bancários aparecem no botão "Pagar" da linha do orçamento.</p></div>
+    <p class="nota">Total = Qtd × Unit. Quando o pagamento fica "Pago", o botão "→ Tabela" lança o investimento no relatório com a categoria de custo e o canal.</p>
+  </section>
+
+  <!-- DEMANDAS -->
+    <section class="view" id="view-demandas" hidden>
+    <div class="dash-head"><div><h1>Demandas de Marketing</h1><p id="dem-sub"></p></div>
+      <div class="dash-acoes"><div class="seg" id="dem-modo" role="group"><button type="button" data-m="tabela">Tabela</button><button type="button" data-m="kanban">Kanban</button></div><div class="seg" id="dem-abas" role="group" hidden><button type="button" data-a="lista">Pedidos recebidos</button><button type="button" data-a="form">Nova demanda</button></div></div></div>
+    <div id="dem-lista">
+      <div class="kpis" id="dem-kpis"></div>
+      <div class="filters"><div class="field">Status<div class="ms" id="dem-st"></div></div><div class="field">Empresa<div class="ms" id="dem-emp"></div></div></div>
+      <p class="nota" id="dem-status"></p>
+      <div class="sheet" id="dem-tabela"><div class="sheet-scroll" style="min-height:0;max-height:72vh"><table class="planilha" id="dem-tab"><tbody></tbody></table></div></div>
+      <div id="dem-kanban" hidden></div>
+    </div>
+    <div id="dem-form-box" hidden>
+      <form class="card dem-form" id="dem-form">
+        <h3>Nova demanda</h3>
+        <div id="df-campos"></div>
+        <input type="file" id="df-arq" multiple hidden>
+        <div class="dem-enviar"><button class="btn primary" type="submit">Enviar demanda</button><span class="nota" id="df-quem"></span></div>
+        <div class="ok-msg" id="df-ok" hidden>Demanda enviada. O marketing recebe na hora e você acompanha o status por aqui.</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONFIGURAÇÕES -->
+  <section class="view" id="view-config" hidden>
+    <div class="dash-head"><div><h1>Configurações</h1><p>Tudo aqui é salvo na hora e vale para o app todo.</p></div></div>
+    <div class="cfg-abas" id="cfg-abas"><button type="button" data-a="emp">Empreendimentos</button><button type="button" data-a="etapas">Etapas e status</button><button type="button" data-a="usu">Usuários</button><button type="button" data-a="papeis">Funções e permissões</button><button type="button" data-a="equipes">Equipes</button><button type="button" data-a="regras">Metas e regras</button><button type="button" data-a="avisos" data-admin>Avisos</button><button type="button" data-a="formdem">Formulário de demandas</button><button type="button" data-a="vargas" data-admin>VARGAS</button><button type="button" data-a="aparencia" data-admin>Aparência e voz</button><button type="button" data-a="integ" data-admin>Integrações</button><button type="button" data-a="listas">Listas e colunas</button><button type="button" data-a="canais">Categorias e canais</button></div>
+    <div class="card cfg-corpo" id="cfg-corpo"></div>
+  </section>
+
+  <!-- CAMPANHAS -->
+  <section class="view" id="view-campanhas" hidden>
+    <div class="dash-head"><div><h1>Campanhas e criativos</h1><p>Direto da Meta, por anúncio.</p></div></div>
+    <div class="sec-title">Campanhas e criativos · direto da Meta</div>
+    <div class="filters">
+      <label class="field">Período<select id="c-per"><option value="mes">Mês atual</option><option value="mesant">Mês anterior</option><option value="7">Últimos 7 dias</option><option value="30">Últimos 30 dias</option><option value="90">Últimos 90 dias</option><option value="custom">Personalizado</option></select></label>
+      <label class="field" id="c-de-box" hidden>De<input type="date" id="c-de"></label>
+      <label class="field" id="c-ate-box" hidden>Até<input type="date" id="c-ate"></label>
+      <div class="field">Objetivo<div class="ms" id="c-obj"></div></div>
+      <div class="field">Empreendimento<div class="ms" id="c-conta"></div></div>
+      <label class="field" style="flex:1 1 200px">Buscar criativo, campanha ou conjunto<input type="search" autocomplete="off" id="c-busca" placeholder="ex.: Parcela, Reel, CAY"></label>
+      <label class="chk"><input type="checkbox" id="c-melhor">Só o melhor CPR de cada empreendimento e objetivo</label>
+      <label class="chk"><input type="checkbox" id="c-ativos">Só anúncios ativos</label>
+    </div>
+    <p class="nota" id="c-status"></p>
+    <div class="sheet"><div class="sheet-scroll" style="min-height:0;max-height:720px"><table class="plano" id="ind-campanhas"></table></div></div>
+    <p class="nota">Clique no título da coluna para ordenar e no criativo (ou na miniatura) para abrir o anúncio. Resultado: Conversas = conversas iniciadas; Alcance = pessoas alcançadas (CPR por mil); Tráfego = cliques no link; Cadastros = leads. "Melhor CPR" = menor custo por resultado de cada empreendimento e objetivo no filtro.</p>
+  </section>
+
+  <!-- INDICADORES -->
+  <section class="view" id="view-indicadores" hidden>
+    <div class="dash-head"><div><h1>Indicadores</h1><p>Atualizam sozinhos. Substituem os indicadores semanais do Matheus, o "Relatório mensal de resultados Marketing" e o "Relatório mensal de campanhas".</p></div></div>
+    <div class="sec-title">Indicadores semestrais · M. Fraga</div>
+    <div class="sheet"><div class="sheet-scroll" style="min-height:0"><table class="plano" id="ind-semestral"></table></div></div>
+    <p class="nota">Acumulados desde o início do semestre (data no 1º mês) até o fim de cada mês, como na planilha "Indicadores Young". Cada mês começa no dia seguinte ao fim do anterior. ROAS = (VGV × 2% − investimento) ÷ investimento. Eficiência de Budget = (investimento ÷ budget disponível) ÷ (vendas ÷ estoque), somando os meses. * = mês em andamento.</p>
+    <div class="sec-title">ROAS mensal por ativo</div>
+    <div class="plano-bar"><label class="field">Mês<select id="roas-mes"></select></label><label class="field">De<input type="date" id="roas-de"></label><label class="field">Até<input type="date" id="roas-ate"></label></div>
+    <div class="sheet"><div class="sheet-scroll" style="min-height:0"><table class="plano" id="ind-roas"></table></div></div>
+    <p class="nota">Budget e estoque do início do mês são lançados à mão (duplo clique). Budget final também pode ser editado (duplo clique; vazio volta ao cálculo budget − investimento). De/Até: período real do mês de indicadores, salvo por mês. Julho a outubro de 2026 foram importados da planilha "ROAS Mensal". Investimento, vendas e VGV vêm do relatório.</p>
+    <div class="sec-title">Indicadores semanais · M. Vargas</div>
+    <div class="sheet"><div class="sheet-scroll" style="min-height:0"><table class="plano" id="ind-semanal"></table></div></div>
+    <p class="nota">Semanas ISO (segunda a domingo). Leads = leads totais do relatório; Venda digital = vendas com medium "Mídia paga". Stories = publicações "Stories" com status "5.Publicada" no Cronograma Institucional.</p>
+    <div class="sec-title">Resultados mensais por empreendimento</div>
+    <div class="plano-bar"><label class="field">Mês<select id="r-mes"></select></label></div>
+    <div class="sheet"><div class="sheet-scroll" style="min-height:0"><table class="plano" id="ind-mensal"></table></div></div>
+    <p class="nota">Budget estimado = 2% do VGV. Atingimento = investimento geral ÷ budget estimado. CPA % = CPA ÷ ticket médio.</p>
+    
+  </section>
+
+  <!-- VARGAS -->
+  <section class="view" id="view-vargas" hidden>
+    
+    <div class="vargas">
+      <div class="v-head">
+        <div class="v-title"><b>VARGAS</b><small>Virtual Assistant for Research, Growth, Advertising and Strategy</small></div>
+        <div class="v-meta">Motor <em>Gemini</em> · fontes <em>banco · Meta · cronograma</em><br><span id="v-clock"></span></div>
+      </div>
+      <div class="v-grid">
+        <div class="v-col side">
+          <div class="hud"><h4>Conexões</h4><ul id="v-con">
+            <li><span class="k"><span class="dot" id="c-db"></span>Banco de dados</span><span class="v" id="c-db-v">—</span></li>
+            <li><span class="k"><span class="dot off" id="c-meta"></span>Meta Ads</span><span class="v" id="c-meta-v">—</span></li>
+            <li><span class="k"><span class="dot off" id="c-cro"></span>Cronograma editorial</span><span class="v" id="c-cro-v">—</span></li>
+          </ul></div>
+          <div class="hud"><h4>Campanhas ativas · Meta · hoje</h4><ul id="v-camps"><li><span class="k">Carregando…</span></li></ul></div>
+          <div class="hud"><h4>Alertas de saldo</h4><ul id="v-alerts"></ul></div>
+        </div>
+        <div class="v-center">
+          <div class="orb-wrap"><canvas id="orb" aria-label="Indicador visual do VARGAS"></canvas><div class="v-log" id="v-log" aria-live="polite" hidden></div></div>
+          <div class="v-state" id="v-state">Em espera</div>
+          <div class="v-chat" id="v-chat" aria-live="polite"></div>
+          
+          <form class="v-input" id="v-form">
+            <textarea id="v-q" rows="1" placeholder="Pergunte ao VARGAS sobre campanhas, leads, vendas ou o cronograma…" title="Enter envia · Shift+Enter quebra a linha" autocomplete="off"></textarea>
+            <button class="mic" type="button" id="v-mic" aria-label="Falar com o VARGAS">●</button>
+            <button class="send" type="submit">ENVIAR</button>
+          </form>
+          <div style="margin-top:8px"><button class="v-btn" type="button" id="v-voz">VOZ: DESLIGADA</button> <select class="v-btn" id="v-vel" aria-label="Velocidade da voz" title="Velocidade da voz"><option value="1">1×</option><option value="1.15">1,15×</option><option value="1.3">1,3×</option><option value="1.5">1,5×</option><option value="1.75">1,75×</option></select></div>
+        </div>
+        <div class="v-col side">
+          <div class="hud"><h4>Hoje · Meta</h4><ul id="v-today"></ul></div>
+        </div>
+      </div>
+      <div class="v-foot">O VARGAS recebe só números agregados. Nomes e e-mails de clientes nunca saem do banco.</div>
+    </div>
+  </section>
+</main>
+<div class="cr-veu" id="cr-veu"></div>
+<aside class="cr-painel" id="cr-painel" aria-label="Informações do criativo"></aside>
+</div>
+
+<div class="drawer" id="drawer" hidden>
+  <form class="drawer-panel" id="new-form">
+    <h2>Novo lançamento</h2>
+    <p style="margin:0;color:var(--muted);font-size:13px">Entra na tabela e no dashboard na hora.</p>
+    <label class="field">Data<input id="nf-data" type="date" required></label>
+    <label class="field">Ativo<select id="nf-ativo"></select></label>
+    <label class="field">Tipo de relatório<select id="nf-tipo"><option>1.Marketing</option><option>2.Vendas</option></select></label>
+    <label class="field">Categoria do relatório<select id="nf-cat"></select></label>
+    <label class="field">Subcategoria do relatório<select id="nf-sub"></select></label>
+    <label class="field">Categoria do investimento<select id="nf-catinv"></select></label>
+    <label class="field">Canal<input id="nf-canal" type="text" list="dl-canal"></label>
+    <label class="field">Detalhamento do investimento<input id="nf-det" type="text"></label>
+    <label class="field">Valor do investimento (R$)<input id="nf-valor" type="number" min="0" step="0.01"></label>
+    <div class="drawer-actions">
+      <button class="btn" type="button" id="nf-cancel">Cancelar</button>
+      <button class="btn primary" type="submit">Salvar lançamento</button>
+    </div>
+  </form>
+</div>
+<datalist id="dl-canal"></datalist>
+<div class="toast" id="toast" hidden></div>
+</body>
+</html>
